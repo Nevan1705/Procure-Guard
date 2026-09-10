@@ -1,0 +1,24 @@
+{
+  "_comment": "Deterministic mock MCA21 company records (PRD §16). Synthetic identifiers.",
+  "U12345MH2018PTC123456": {
+    "cin": "U12345MH2018PTC123456",
+    "legal_name": "Acme Systems Pvt Ltd",
+    "status": "ACTIVE",
+    "incorporation_date": "2018-03-15",
+    "registered_address": "Plot 14, MIDC Andheri East, Mumbai 400093"
+  },
+  "AAB-9912": {
+    "cin": "AAB-9912",
+    "legal_name": "Meridian Infra Consortium LLP",
+    "status": "ACTIVE",
+    "incorporation_date": "2021-01-20",
+    "registered_address": "4th Floor, Prestige Tower, Bengaluru 560001"
+  },
+  "U99999DL2019PTC000111": {
+    "cin": "U99999DL2019PTC000111",
+    "legal_name": "Nimbus Digital Solutions",
+    "status": "STRIKE_OFF",
+    "incorporation_date": "2019-05-02",
+    "registered_address": "Plot 9, Okhla Phase 2, New Delhi 110020"
+  }
+}

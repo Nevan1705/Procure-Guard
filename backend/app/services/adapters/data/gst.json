@@ -1,0 +1,39 @@
+{
+  "_comment": "Deterministic mock GST records for the SIH demo (PRD §16). All identifiers are synthetic.",
+  "27AAAPZ1234C1ZV": {
+    "gstin": "27AAAPZ1234C1ZV",
+    "legal_name": "Acme Systems Pvt Ltd",
+    "trade_name": "Acme Systems",
+    "status": "ACTIVE",
+    "registration_date": "2018-04-12",
+    "last_return_filed": "2026-08-20"
+  },
+  "29AABCU9603R1ZM": {
+    "gstin": "29AABCU9603R1ZM",
+    "legal_name": "Acme Systems Pvt Ltd",
+    "trade_name": "Acme Systems",
+    "status": "ACTIVE",
+    "registration_date": "2019-06-01",
+    "last_return_filed": "2026-08-18"
+  },
+  "27AAIFM7712K1ZQ": {
+    "gstin": "27AAIFM7712K1ZQ",
+    "legal_name": "Meridian Infra Consortium LLP",
+    "trade_name": "Meridian Infra",
+    "status": "ACTIVE",
+    "registration_date": "2021-02-15",
+    "last_return_filed": "2026-07-30"
+  },
+  "07AABCB4444M1Z5": {
+    "gstin": "07AABCB4444M1Z5",
+    "legal_name": "Bharat Steel Traders",
+    "trade_name": "Bharat Steel",
+    "status": "INACTIVE",
+    "registration_date": "2015-11-30",
+    "last_return_filed": "2025-03-10"
+  },
+  "24AACCD9999P1Z2": {
+    "_unavailable": true,
+    "reason": "GSTN public search is temporarily unreachable (simulated outage)"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "_comment": "Deterministic mock OEM authorization records (PRD §16). Keyed by the authorized bidder's GSTIN. All identifiers are synthetic.",
+  "27AAAPZ1234C1ZV": {
+    "legal_name": "Acme Systems Pvt Ltd",
+    "oem_name": "GlobalTech Manufacturing Ltd",
+    "status": "ACTIVE",
+    "authorization_reference": "OEM-AUTH-2026-0451",
+    "valid_upto": "2027-03-31"
+  },
+  "27AAIFM7712K1ZQ": {
+    "legal_name": "Meridian Infra Consortium LLP",
+    "oem_name": "GlobalTech Manufacturing Ltd",
+    "status": "ACTIVE",
+    "authorization_reference": "OEM-AUTH-2026-0388",
+    "valid_upto": "2027-01-15"
+  },
+  "24AACCD9999P1Z2": {
+    "_unavailable": true,
+    "reason": "OEM registry lookup is temporarily unreachable (simulated outage)"
+  }
+}

@@ -1,0 +1,271 @@
+/* ProcureGuard — "official record" design language.
+   Paper docket, iron-gall ink, rubber-stamp verdicts.
+   Rationale in DESIGN.md. Ink colors are semantic (PRD FR-09):
+   verified = green, review = amber, non-compliant = red,
+   unverifiable = washed grey (never green). */
+
+:root {
+  --paper: #edeae2;
+  --paper-raised: #f5f3ed;
+  --paper-dim: #e3dfd4;
+  --ink: #232a35;
+  --ink-strong: #151a22;
+  --ink-soft: #5d6470;
+  --rule: #bdb5a4;
+  --rule-strong: #8f8775;
+  --file-red: #a3352c;
+  --file-red-deep: #7c2a23;
+  --stamp-green: #2e6b4f;
+  --stamp-amber: #9a6a1c;
+  --stamp-high: #ac4e22;
+  --stamp-grey: #726c5f;
+  --focus: #1f5fbf;
+  --radius: 4px;
+  --font-body: 'IBM Plex Sans', 'Segoe UI', system-ui, sans-serif;
+  --font-stamp: 'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif;
+  --font-mono: 'IBM Plex Mono', Consolas, monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ------------------------------------------------------------ shell */
+
+.app { min-height: 100vh; display: flex; flex-direction: column; }
+
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 28px;
+  background: var(--ink-strong); color: var(--paper);
+}
+
+.brand { display: flex; align-items: center; gap: 12px; }
+.file-tab {
+  background: var(--file-red); color: #fff;
+  font-family: var(--font-stamp); font-weight: 600; font-size: 11.5px;
+  letter-spacing: 0.06em; padding: 3px 8px; border-radius: 2px;
+}
+.brand-name { font-family: var(--font-stamp); font-size: 19px; font-weight: 700; }
+.brand-sub { font-size: 12.5px; color: rgba(237, 234, 226, 0.62); }
+
+nav a {
+  color: rgba(237, 234, 226, 0.72); text-decoration: none;
+  margin-left: 18px; font-size: 14px; padding: 6px 2px;
+  border-bottom: 2px solid transparent;
+}
+nav a:hover { color: var(--paper); }
+nav a.active { color: var(--paper); border-bottom-color: var(--file-red); }
+
+.content {
+  flex: 1; width: 100%; max-width: 1080px;
+  margin: 0 auto; padding: 26px 28px 40px;
+}
+
+.foot {
+  background: var(--ink-strong); color: rgba(237, 234, 226, 0.6);
+  font-size: 12px; padding: 12px 28px;
+}
+
+/* ------------------------------------------------------------ type */
+
+h1 {
+  font-family: var(--font-stamp); font-size: 30px; font-weight: 700;
+  color: var(--ink-strong); margin: 4px 0 6px; line-height: 1.15;
+}
+
+.page-note {
+  font-size: 13.5px; color: var(--ink-soft);
+  max-width: 68ch; margin: 0 0 20px;
+}
+
+h2 {
+  font-family: var(--font-stamp); font-size: 17px; font-weight: 600;
+  color: var(--ink-strong); margin: 0 0 12px; line-height: 1.3;
+}
+
+/* Gazette-style double rule marks the start of each record section
+   (structural, not decorative — it says "new section of the file"). */
+.record > h2 { border-top: 3px double var(--rule-strong); padding-top: 12px; margin-top: 4px; }
+.record > h2:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+
+/* ------------------------------------------------------------ records */
+
+.record {
+  background: var(--paper-raised);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  margin-bottom: 18px;
+  overflow-x: auto;
+}
+
+.grid { display: grid; gap: 14px; }
+.grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+
+/* ------------------------------------------------------------ tables */
+
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th {
+  text-align: left; font-weight: 600; font-size: 13px; color: var(--ink-soft);
+  padding: 8px 10px; border-bottom: 1.5px solid var(--rule-strong);
+}
+td { padding: 10px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+tbody tr:last-child td { border-bottom: none; }
+tr.clickable { cursor: pointer; }
+tr.clickable:hover td { background: var(--paper-dim); }
+
+/* ------------------------------------------------------------ buttons */
+
+button {
+  background: var(--ink-strong); color: var(--paper);
+  border: 1px solid var(--ink-strong); border-radius: 3px;
+  padding: 8px 14px; font: inherit; font-size: 14px; font-weight: 600;
+  cursor: pointer;
+}
+button:hover { background: #2c3542; }
+button.secondary { background: transparent; color: var(--ink-strong); border: 1.5px solid var(--rule-strong); }
+button.secondary:hover { border-color: var(--ink-strong); background: var(--paper-dim); }
+button.danger { background: var(--file-red); border-color: var(--file-red); }
+button.danger:hover { background: var(--file-red-deep); }
+button:disabled { opacity: 0.45; cursor: not-allowed; }
+
+/* ------------------------------------------------------------ forms */
+
+input, textarea, select {
+  background: var(--paper); color: var(--ink-strong);
+  border: 1px solid var(--rule-strong); border-radius: 3px;
+  padding: 8px 10px; font: inherit; font-size: 14px; width: 100%;
+}
+textarea { min-height: 70px; resize: vertical; }
+
+label { display: block; font-size: 13px; color: var(--ink-soft); margin: 10px 0 4px; }
+
+/* ------------------------------------------------------------ stamps */
+
+.stamp {
+  display: inline-block;
+  font-family: var(--font-stamp); font-weight: 700; font-size: 12px;
+  letter-spacing: 0.07em; text-transform: uppercase;
+  color: var(--stamp-grey);
+  border: 1.5px solid currentColor; border-radius: 2px;
+  padding: 3px 9px 2px;
+  background: transparent;
+  white-space: nowrap;
+}
+.stamp--verified { color: var(--stamp-green); }
+.stamp--review { color: var(--stamp-amber); }
+.stamp--high { color: var(--stamp-high); }
+.stamp--failed { color: var(--file-red); }
+.stamp--unverifiable { color: var(--stamp-grey); }
+
+.stamp-big {
+  font-size: 16px; padding: 6px 16px 5px; border-width: 2px;
+  transform: rotate(-2deg);
+}
+
+/* The one orchestrated moment: verdict stamps land on dashboard load. */
+@keyframes stamp-land {
+  0% { transform: scale(1.7) rotate(-9deg); opacity: 0; }
+  60% { transform: scale(0.94) rotate(-1deg); opacity: 1; }
+  100% { transform: scale(1) rotate(-2deg); opacity: 1; }
+}
+.stamp-land { animation: stamp-land 0.32s cubic-bezier(0.2, 0.8, 0.3, 1) both; }
+.stamp-land-2 { animation-delay: 0.09s; }
+@media (prefers-reduced-motion: reduce) {
+  .stamp-land { animation: none; transform: rotate(-2deg); }
+}
+
+/* ------------------------------------------------------------ verdict band */
+
+.verdict-band {
+  display: flex; flex-wrap: wrap; align-items: center;
+  gap: 34px; margin: 8px 0 24px;
+}
+
+.ledger {
+  display: flex; flex-direction: column;
+  border-top: 2px solid var(--ink-strong);
+  border-bottom: 2px solid var(--ink-strong);
+  padding: 8px 20px 10px;
+}
+.ledger-figure {
+  font-family: var(--font-stamp); font-size: 58px; font-weight: 700;
+  line-height: 1; color: var(--ink-strong);
+}
+.ledger-caption { font-size: 12.5px; color: var(--ink-soft); margin-top: 6px; }
+
+.verdict-stamps { display: flex; gap: 16px; align-items: center; }
+
+.state-tally { display: grid; grid-template-columns: repeat(4, auto); gap: 22px; }
+.tally-fig {
+  display: block; font-family: var(--font-stamp);
+  font-size: 30px; font-weight: 700; line-height: 1;
+}
+.tally-lbl { display: block; font-size: 12px; color: var(--ink-soft); margin-top: 4px; }
+
+.ink-verified { color: var(--stamp-green); }
+.ink-review { color: var(--stamp-amber); }
+.ink-high { color: var(--stamp-high); }
+.ink-failed { color: var(--file-red); }
+.ink-unverifiable { color: var(--stamp-grey); }
+
+/* ------------------------------------------------------------ utilities */
+
+.err {
+  color: var(--file-red-deep);
+  border-left: 3px solid var(--file-red);
+  background: #f1e3e0;
+  border-radius: 0 3px 3px 0;
+  padding: 8px 12px; margin: 10px 0; font-size: 14px;
+}
+.muted { color: var(--ink-soft); font-size: 13px; }
+.mono { font-family: var(--font-mono); font-size: 12.5px; }
+
+.finding {
+  border-left: 3px solid var(--rule-strong);
+  background: var(--paper);
+  border-radius: 0 3px 3px 0;
+  padding: 8px 12px; margin: 8px 0; font-size: 14px;
+}
+
+details summary { cursor: pointer; }
+pre {
+  background: var(--paper); border: 1px solid var(--rule);
+  border-radius: 3px; padding: 10px; margin: 8px 0 0;
+  font-family: var(--font-mono); font-size: 12px; overflow-x: auto;
+}
+
+/* ------------------------------------------------------------ responsive */
+
+@media (max-width: 960px) {
+  .grid.cols-3 { grid-template-columns: 1fr 1fr; }
+  .state-tally { grid-template-columns: repeat(4, auto); gap: 16px; }
+  .verdict-band { gap: 24px; }
+}
+
+@media (max-width: 640px) {
+  .content { padding: 18px 16px 32px; }
+  .topbar { flex-wrap: wrap; gap: 8px; padding: 12px 16px; }
+  .grid.cols-3 { grid-template-columns: 1fr; }
+  .state-tally { grid-template-columns: 1fr 1fr; }
+  h1 { font-size: 26px; }
+  .record { padding: 14px; }
+  th, td { padding: 7px 8px; }
+  .stamp { letter-spacing: 0.05em; }
+  .stamp-big { font-size: 14px; }
+  .ledger-figure { font-size: 48px; }
+}

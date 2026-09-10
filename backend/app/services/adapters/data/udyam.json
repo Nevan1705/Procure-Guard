@@ -1,0 +1,25 @@
+{
+  "_comment": "Deterministic mock Udyam/MSME records (PRD §16). Synthetic identifiers.",
+  "UDYAM-MH-01-0012345": {
+    "udyam_id": "UDYAM-MH-01-0012345",
+    "enterprise_name": "Acme Systems Pvt Ltd",
+    "type": "SMALL",
+    "status": "ACTIVE",
+    "registration_date": "2020-07-22"
+  },
+  "UDYAM-KA-03-0044210": {
+    "udyam_id": "UDYAM-KA-03-0044210",
+    "enterprise_name": "Meridian Infra Consortium LLP",
+    "type": "MEDIUM",
+    "status": "ACTIVE",
+    "registration_date": "2021-09-10"
+  },
+  "UDYAM-DL-02-0000917": {
+    "udyam_id": "UDYAM-DL-02-0000917",
+    "enterprise_name": "Nimbus Digital Solutions",
+    "type": "MICRO",
+    "status": "EXPIRED",
+    "registration_date": "2019-01-05",
+    "valid_upto": "2024-01-04"
+  }
+}

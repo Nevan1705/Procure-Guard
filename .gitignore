@@ -1,0 +1,46 @@
+﻿# Node / Frontend
+node_modules/
+dist/
+dist-ssr/
+*.local
+frontend/dist/
+frontend/node_modules/
+frontend/probe.html
+*.tsbuildinfo
+
+# Python / Backend
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+*.db
+*.sqlite3
+backend/procureguard.db
+backend/uploads/
+.pytest_cache/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Editor & OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment variables
+.env
+.env.*
+!.env.example
